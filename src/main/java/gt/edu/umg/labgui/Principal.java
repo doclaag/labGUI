@@ -1,12 +1,18 @@
 package gt.edu.umg.labgui;
 
 import javax.swing.JOptionPane;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptEngine;
 
 /**
  * @author Luis Alonzo
  */
-public class Principal extends javax.swing.JFrame {
 
+public class Principal extends javax.swing.JFrame {
+    
+    ScriptEngineManager manager = new ScriptEngineManager();
+    ScriptEngine engine = manager.getEngineByName("JavaScript");
+    
     /**
      * Creates new form Principal
      */
@@ -26,13 +32,34 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         panelMensaje = new javax.swing.JPanel();
-        txtMensaje = new javax.swing.JLabel();
+        txtOperacion = new javax.swing.JLabel();
+        txtResultado = new javax.swing.JLabel();
         panelEscritura = new javax.swing.JPanel();
-        btnAceptar = new javax.swing.JButton();
+        btnDividir = new javax.swing.JButton();
+        btnBorrar1 = new javax.swing.JButton();
+        btnBorrarU = new javax.swing.JButton();
+        btnMod = new javax.swing.JButton();
+        btnMultiplicar = new javax.swing.JButton();
+        btnNum9 = new javax.swing.JButton();
+        btnRestar = new javax.swing.JButton();
+        btnSumar = new javax.swing.JButton();
+        btnResultado = new javax.swing.JButton();
+        btnNum7 = new javax.swing.JButton();
+        btnNum8 = new javax.swing.JButton();
+        btnNum6 = new javax.swing.JButton();
+        btnNum5 = new javax.swing.JButton();
+        btnNum4 = new javax.swing.JButton();
+        btnNum3 = new javax.swing.JButton();
+        btnNum1 = new javax.swing.JButton();
+        btnNum2 = new javax.swing.JButton();
+        btnPunto = new javax.swing.JButton();
+        btnNum0 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Ventana Principal");
         setBackground(new java.awt.Color(102, 255, 102));
+        setLocation(new java.awt.Point(800, 200));
+        setName("calculadora"); // NOI18N
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -40,35 +67,315 @@ public class Principal extends javax.swing.JFrame {
         panelMensaje.setPreferredSize(new java.awt.Dimension(340, 150));
         panelMensaje.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtMensaje.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        txtMensaje.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        txtMensaje.setText("MI PRIMER PROGRAMA");
-        panelMensaje.add(txtMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 21, 330, -1));
+        txtOperacion.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        txtOperacion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        panelMensaje.add(txtOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 21, 330, -1));
+
+        txtResultado.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        txtResultado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        txtResultado.setText("Resultado");
+        panelMensaje.add(txtResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 330, 60));
 
         getContentPane().add(panelMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, -1));
 
         panelEscritura.setBackground(new java.awt.Color(255, 255, 255));
         panelEscritura.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnAceptar.setText("Aceptar");
-        btnAceptar.setBorder(null);
-        btnAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+        btnDividir.setBackground(new java.awt.Color(105, 209, 197));
+        btnDividir.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        btnDividir.setText("/");
+        btnDividir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnDividir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAceptarActionPerformed(evt);
+                btnDividirActionPerformed(evt);
             }
         });
-        panelEscritura.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 110, 90));
+        panelEscritura.add(btnDividir, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 50, 50));
 
-        getContentPane().add(panelEscritura, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 340, 400));
+        btnBorrar1.setBackground(new java.awt.Color(105, 209, 197));
+        btnBorrar1.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        btnBorrar1.setText("C");
+        btnBorrar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBorrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrar1ActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(btnBorrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 50, 50));
+
+        btnBorrarU.setBackground(new java.awt.Color(105, 209, 197));
+        btnBorrarU.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        btnBorrarU.setText("->");
+        btnBorrarU.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBorrarU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarUActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(btnBorrarU, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 50, 50));
+
+        btnMod.setBackground(new java.awt.Color(105, 209, 197));
+        btnMod.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        btnMod.setText("%");
+        btnMod.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnMod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(btnMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 50, 50));
+
+        btnMultiplicar.setBackground(new java.awt.Color(105, 209, 197));
+        btnMultiplicar.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        btnMultiplicar.setText("X");
+        btnMultiplicar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnMultiplicar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMultiplicarActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(btnMultiplicar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 50, 50));
+
+        btnNum9.setBackground(new java.awt.Color(227, 218, 201));
+        btnNum9.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        btnNum9.setText("9");
+        btnNum9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnNum9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNum9ActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(btnNum9, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 50, 50));
+
+        btnRestar.setBackground(new java.awt.Color(105, 209, 197));
+        btnRestar.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        btnRestar.setText("-");
+        btnRestar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnRestar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRestarActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(btnRestar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 50, 50));
+
+        btnSumar.setBackground(new java.awt.Color(105, 209, 197));
+        btnSumar.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        btnSumar.setText("+");
+        btnSumar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnSumar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSumarActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(btnSumar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, 50, 50));
+
+        btnResultado.setBackground(new java.awt.Color(59, 169, 156));
+        btnResultado.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        btnResultado.setText("=");
+        btnResultado.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnResultado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResultadoActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(btnResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 50, 50));
+
+        btnNum7.setBackground(new java.awt.Color(227, 218, 201));
+        btnNum7.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        btnNum7.setText("7");
+        btnNum7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnNum7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNum7ActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(btnNum7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 50, 50));
+
+        btnNum8.setBackground(new java.awt.Color(227, 218, 201));
+        btnNum8.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        btnNum8.setText("8");
+        btnNum8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnNum8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNum8ActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(btnNum8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 50, 50));
+
+        btnNum6.setBackground(new java.awt.Color(227, 218, 201));
+        btnNum6.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        btnNum6.setText("6");
+        btnNum6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnNum6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNum6ActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(btnNum6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 50, 50));
+
+        btnNum5.setBackground(new java.awt.Color(227, 218, 201));
+        btnNum5.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        btnNum5.setText("5");
+        btnNum5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnNum5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNum5ActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(btnNum5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 50, 50));
+
+        btnNum4.setBackground(new java.awt.Color(227, 218, 201));
+        btnNum4.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        btnNum4.setText("4");
+        btnNum4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnNum4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNum4ActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(btnNum4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 50, 50));
+
+        btnNum3.setBackground(new java.awt.Color(227, 218, 201));
+        btnNum3.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        btnNum3.setText("3");
+        btnNum3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnNum3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNum3ActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(btnNum3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 50, 50));
+
+        btnNum1.setBackground(new java.awt.Color(227, 218, 201));
+        btnNum1.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        btnNum1.setText("1");
+        btnNum1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnNum1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNum1ActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(btnNum1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 50, 50));
+
+        btnNum2.setBackground(new java.awt.Color(227, 218, 201));
+        btnNum2.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        btnNum2.setText("2");
+        btnNum2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnNum2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNum2ActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(btnNum2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 50, 50));
+
+        btnPunto.setBackground(new java.awt.Color(227, 218, 201));
+        btnPunto.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        btnPunto.setText(".");
+        btnPunto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPunto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPuntoActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(btnPunto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 50, 50));
+
+        btnNum0.setBackground(new java.awt.Color(227, 218, 201));
+        btnNum0.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        btnNum0.setText("0");
+        btnNum0.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnNum0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNum0ActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(btnNum0, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 50, 50));
+
+        getContentPane().add(panelEscritura, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 340, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        this.txtMensaje.setText("Estoy aprendiendo Java");
-        JOptionPane.showMessageDialog(rootPane, "Hola Mundo - Soy Luis Alonzo");
-    }//GEN-LAST:event_btnAceptarActionPerformed
+    private void btnDividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDividirActionPerformed
+        addNumber("/");
+    }//GEN-LAST:event_btnDividirActionPerformed
+
+    private void btnBorrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrar1ActionPerformed
+        addNumber("");
+    }//GEN-LAST:event_btnBorrar1ActionPerformed
+
+    private void btnBorrarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarUActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBorrarUActionPerformed
+
+    private void btnModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModActionPerformed
+        addNumber("%");
+    }//GEN-LAST:event_btnModActionPerformed
+
+    private void btnMultiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplicarActionPerformed
+        addNumber("*");
+    }//GEN-LAST:event_btnMultiplicarActionPerformed
+
+    private void btnNum9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNum9ActionPerformed
+        addNumber("9");
+    }//GEN-LAST:event_btnNum9ActionPerformed
+
+    private void btnRestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestarActionPerformed
+        addNumber("-");
+    }//GEN-LAST:event_btnRestarActionPerformed
+
+    private void btnSumarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumarActionPerformed
+        addNumber("+");
+    }//GEN-LAST:event_btnSumarActionPerformed
+
+    private void btnResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultadoActionPerformed
+        try{
+            String resultado = engine.eval(this.txtOperacion.getText()).toString();
+            this.txtResultado.setText(resultado);
+        }catch(Exception e){
+            System.out.println(e);
+            //this.txtResultado.setText(e.toString());
+        }
+    }//GEN-LAST:event_btnResultadoActionPerformed
+
+    private void btnNum7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNum7ActionPerformed
+        addNumber("7");
+    }//GEN-LAST:event_btnNum7ActionPerformed
+
+    private void btnNum8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNum8ActionPerformed
+        addNumber("8");
+    }//GEN-LAST:event_btnNum8ActionPerformed
+
+    private void btnNum6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNum6ActionPerformed
+        addNumber("6");
+    }//GEN-LAST:event_btnNum6ActionPerformed
+
+    private void btnNum5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNum5ActionPerformed
+        addNumber("5");
+    }//GEN-LAST:event_btnNum5ActionPerformed
+
+    private void btnNum4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNum4ActionPerformed
+        addNumber("4");
+    }//GEN-LAST:event_btnNum4ActionPerformed
+
+    private void btnNum3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNum3ActionPerformed
+        addNumber("3");
+    }//GEN-LAST:event_btnNum3ActionPerformed
+
+    private void btnNum1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNum1ActionPerformed
+        addNumber("1");
+    }//GEN-LAST:event_btnNum1ActionPerformed
+
+    private void btnNum2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNum2ActionPerformed
+        addNumber("2");
+    }//GEN-LAST:event_btnNum2ActionPerformed
+
+    private void btnPuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPuntoActionPerformed
+        addNumber(".");
+    }//GEN-LAST:event_btnPuntoActionPerformed
+
+    private void btnNum0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNum0ActionPerformed
+        addNumber("0");
+    }//GEN-LAST:event_btnNum0ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -104,11 +411,34 @@ public class Principal extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void addNumber(String digito){
+        this.txtOperacion.setText(this.txtOperacion.getText()+digito);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btnBorrar1;
+    private javax.swing.JButton btnBorrarU;
+    private javax.swing.JButton btnDividir;
+    private javax.swing.JButton btnMod;
+    private javax.swing.JButton btnMultiplicar;
+    private javax.swing.JButton btnNum0;
+    private javax.swing.JButton btnNum1;
+    private javax.swing.JButton btnNum2;
+    private javax.swing.JButton btnNum3;
+    private javax.swing.JButton btnNum4;
+    private javax.swing.JButton btnNum5;
+    private javax.swing.JButton btnNum6;
+    private javax.swing.JButton btnNum7;
+    private javax.swing.JButton btnNum8;
+    private javax.swing.JButton btnNum9;
+    private javax.swing.JButton btnPunto;
+    private javax.swing.JButton btnRestar;
+    private javax.swing.JButton btnResultado;
+    private javax.swing.JButton btnSumar;
     private javax.swing.JPanel panelEscritura;
     private javax.swing.JPanel panelMensaje;
-    private javax.swing.JLabel txtMensaje;
+    private javax.swing.JLabel txtOperacion;
+    private javax.swing.JLabel txtResultado;
     // End of variables declaration//GEN-END:variables
 }
