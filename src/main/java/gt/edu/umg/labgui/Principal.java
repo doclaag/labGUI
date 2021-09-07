@@ -7,12 +7,12 @@ import javax.swing.JOptionPane;
  */
 public class Principal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Principal
-     */
+    double num1 = 0.0;
+    double num2 = 0.0;
     
     public Principal() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -25,10 +25,17 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelEscritura = new javax.swing.JPanel();
+        btnMultiplicar = new javax.swing.JButton();
+        txtNum1 = new javax.swing.JLabel();
+        txtNum2 = new javax.swing.JLabel();
+        tfNum1 = new javax.swing.JTextField();
+        tfNum2 = new javax.swing.JTextField();
+        btnSumar = new javax.swing.JButton();
+        btRestar = new javax.swing.JButton();
+        btnDividir = new javax.swing.JButton();
         panelMensaje = new javax.swing.JPanel();
         txtMensaje = new javax.swing.JLabel();
-        panelEscritura = new javax.swing.JPanel();
-        btnAceptar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ventana Principal");
@@ -36,39 +43,133 @@ public class Principal extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        panelEscritura.setBackground(new java.awt.Color(255, 255, 255));
+        panelEscritura.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnMultiplicar.setText("Multiplicar");
+        btnMultiplicar.setBorder(null);
+        btnMultiplicar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMultiplicar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMultiplicarActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(btnMultiplicar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 110, 30));
+
+        txtNum1.setText("Primer Número:");
+        panelEscritura.add(txtNum1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+
+        txtNum2.setText("Segundo Número:");
+        panelEscritura.add(txtNum2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+
+        tfNum1.setPreferredSize(new java.awt.Dimension(60, 30));
+        tfNum1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNum1ActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(tfNum1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, -1, -1));
+
+        tfNum2.setMinimumSize(new java.awt.Dimension(60, 2));
+        tfNum2.setPreferredSize(new java.awt.Dimension(60, 30));
+        tfNum2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNum2ActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(tfNum2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, -1, -1));
+
+        btnSumar.setText("Sumar");
+        btnSumar.setBorder(null);
+        btnSumar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSumar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSumarActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(btnSumar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 110, 30));
+
+        btRestar.setText("Restar");
+        btRestar.setBorder(null);
+        btRestar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btRestar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRestarActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(btRestar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 100, 30));
+
+        btnDividir.setText("Dividir");
+        btnDividir.setBorder(null);
+        btnDividir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnDividir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDividirActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(btnDividir, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 100, 30));
+
+        getContentPane().add(panelEscritura, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 400));
+
         panelMensaje.setBackground(new java.awt.Color(244, 253, 251));
         panelMensaje.setPreferredSize(new java.awt.Dimension(340, 150));
         panelMensaje.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtMensaje.setBackground(new java.awt.Color(205, 205, 205));
         txtMensaje.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         txtMensaje.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         txtMensaje.setText("MI PRIMER PROGRAMA");
-        panelMensaje.add(txtMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 21, 330, -1));
+        panelMensaje.add(txtMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 300, -1));
 
-        getContentPane().add(panelMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, -1));
-
-        panelEscritura.setBackground(new java.awt.Color(255, 255, 255));
-        panelEscritura.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnAceptar.setText("Aceptar");
-        btnAceptar.setBorder(null);
-        btnAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAceptarActionPerformed(evt);
-            }
-        });
-        panelEscritura.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 110, 90));
-
-        getContentPane().add(panelEscritura, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 340, 400));
+        getContentPane().add(panelMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        this.txtMensaje.setText("Estoy aprendiendo Java");
-        JOptionPane.showMessageDialog(rootPane, "Hola Mundo - Soy Luis Alonzo");
-    }//GEN-LAST:event_btnAceptarActionPerformed
+    private void btnMultiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplicarActionPerformed
+        
+        this.num1 = Double.parseDouble(this.tfNum1.getText());
+        this.num2 = Double.parseDouble(this.tfNum2.getText());
+        
+        double resultado = this.num1 * this.num2;
+        
+        this.txtMensaje.setText(Double.toString(resultado)) ;
+    }//GEN-LAST:event_btnMultiplicarActionPerformed
+
+    private void tfNum1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNum1ActionPerformed
+       
+    }//GEN-LAST:event_tfNum1ActionPerformed
+
+    private void tfNum2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNum2ActionPerformed
+      
+    }//GEN-LAST:event_tfNum2ActionPerformed
+
+    private void btnSumarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumarActionPerformed
+        this.num1 = Double.parseDouble(this.tfNum1.getText());
+        this.num2 = Double.parseDouble(this.tfNum2.getText());
+        
+        double resultado = this.num1 + this.num2;
+        
+        this.txtMensaje.setText(Double.toString(resultado)) ;
+    }//GEN-LAST:event_btnSumarActionPerformed
+
+    private void btRestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRestarActionPerformed
+        this.num1 = Double.parseDouble(this.tfNum1.getText());
+        this.num2 = Double.parseDouble(this.tfNum2.getText());
+        
+        double resultado = this.num1 - this.num2;
+        
+        this.txtMensaje.setText(Double.toString(resultado)) ;
+    }//GEN-LAST:event_btRestarActionPerformed
+
+    private void btnDividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDividirActionPerformed
+        this.num1 = Double.parseDouble(this.tfNum1.getText());
+        this.num2 = Double.parseDouble(this.tfNum2.getText());
+        
+        double resultado = this.num1 / this.num2;
+        
+        this.txtMensaje.setText(Double.toString(resultado)) ;
+    }//GEN-LAST:event_btnDividirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -106,9 +207,16 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btRestar;
+    private javax.swing.JButton btnDividir;
+    private javax.swing.JButton btnMultiplicar;
+    private javax.swing.JButton btnSumar;
     private javax.swing.JPanel panelEscritura;
     private javax.swing.JPanel panelMensaje;
+    private javax.swing.JTextField tfNum1;
+    private javax.swing.JTextField tfNum2;
     private javax.swing.JLabel txtMensaje;
+    private javax.swing.JLabel txtNum1;
+    private javax.swing.JLabel txtNum2;
     // End of variables declaration//GEN-END:variables
 }
