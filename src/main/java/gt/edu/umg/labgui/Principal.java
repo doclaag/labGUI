@@ -7,12 +7,13 @@ import javax.swing.JOptionPane;
  */
 public class Principal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Principal
-     */
+    double num1 = 0.0;
+    double num2 = 0.0;
+    double resultado = 0.0;
     
     public Principal() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -26,9 +27,17 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         panelMensaje = new javax.swing.JPanel();
-        txtMensaje = new javax.swing.JLabel();
+        txtNum1 = new javax.swing.JLabel();
+        txtNum2 = new javax.swing.JLabel();
+        tfNum1 = new javax.swing.JTextField();
+        tfNum2 = new javax.swing.JTextField();
         panelEscritura = new javax.swing.JPanel();
-        btnAceptar = new javax.swing.JButton();
+        btnDividir = new javax.swing.JButton();
+        btnSumar = new javax.swing.JButton();
+        btnRestar = new javax.swing.JButton();
+        btnMultiplicar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        txtResultado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ventana Principal");
@@ -40,35 +49,142 @@ public class Principal extends javax.swing.JFrame {
         panelMensaje.setPreferredSize(new java.awt.Dimension(340, 150));
         panelMensaje.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtMensaje.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        txtMensaje.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        txtMensaje.setText("MI PRIMER PROGRAMA");
-        panelMensaje.add(txtMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 21, 330, -1));
+        txtNum1.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        txtNum1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        txtNum1.setText("Primer Número:");
+        panelMensaje.add(txtNum1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 150, 40));
 
-        getContentPane().add(panelMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, -1));
+        txtNum2.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        txtNum2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        txtNum2.setText("Segundo Número:");
+        panelMensaje.add(txtNum2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 160, 40));
 
-        panelEscritura.setBackground(new java.awt.Color(255, 255, 255));
+        tfNum1.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        tfNum1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        panelMensaje.add(tfNum1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 32, 140, 40));
+
+        tfNum2.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        tfNum2.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        panelMensaje.add(tfNum2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 112, 140, 40));
+
+        getContentPane().add(panelMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 190));
+
+        panelEscritura.setBackground(new java.awt.Color(152, 203, 180));
         panelEscritura.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnAceptar.setText("Aceptar");
-        btnAceptar.setBorder(null);
-        btnAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+        btnDividir.setBackground(new java.awt.Color(123, 160, 152));
+        btnDividir.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        btnDividir.setForeground(new java.awt.Color(255, 252, 232));
+        btnDividir.setText("Dividir");
+        btnDividir.setBorder(null);
+        btnDividir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnDividir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAceptarActionPerformed(evt);
+                btnDividirActionPerformed(evt);
             }
         });
-        panelEscritura.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 110, 90));
+        panelEscritura.add(btnDividir, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 100, 80));
+
+        btnSumar.setBackground(new java.awt.Color(123, 160, 152));
+        btnSumar.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        btnSumar.setForeground(new java.awt.Color(255, 252, 232));
+        btnSumar.setText("Sumar");
+        btnSumar.setBorder(null);
+        btnSumar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSumar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSumarActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(btnSumar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 100, 80));
+
+        btnRestar.setBackground(new java.awt.Color(123, 160, 152));
+        btnRestar.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        btnRestar.setForeground(new java.awt.Color(255, 252, 232));
+        btnRestar.setText("Restar");
+        btnRestar.setBorder(null);
+        btnRestar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRestar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRestarActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(btnRestar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 100, 80));
+
+        btnMultiplicar.setBackground(new java.awt.Color(123, 160, 152));
+        btnMultiplicar.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        btnMultiplicar.setForeground(new java.awt.Color(255, 252, 232));
+        btnMultiplicar.setText("Multiplicar");
+        btnMultiplicar.setBorder(null);
+        btnMultiplicar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMultiplicar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMultiplicarActionPerformed(evt);
+            }
+        });
+        panelEscritura.add(btnMultiplicar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 100, 80));
+
+        jPanel1.setBackground(new java.awt.Color(255, 252, 232));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtResultado.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        txtResultado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jPanel1.add(txtResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 310, 60));
+
+        panelEscritura.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 340, 100));
 
         getContentPane().add(panelEscritura, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 340, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        this.txtMensaje.setText("Estoy aprendiendo Java");
-        JOptionPane.showMessageDialog(rootPane, "Hola Mundo - Soy Luis Alonzo");
-    }//GEN-LAST:event_btnAceptarActionPerformed
+    private void btnDividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDividirActionPerformed
+        try{
+           numeros();
+           
+           this.resultado = this.num1 / this.num2;
+           
+           this.txtResultado.setText(Double.toString(this.resultado));
+        }catch(Exception e){
+            mensaje();
+        }
+    }//GEN-LAST:event_btnDividirActionPerformed
+
+    private void btnSumarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumarActionPerformed
+        try{
+           numeros();
+           
+           this.resultado = this.num1 + this.num2;
+           
+           this.txtResultado.setText(Double.toString(this.resultado));
+        }catch(Exception e){
+            mensaje();
+        }
+    }//GEN-LAST:event_btnSumarActionPerformed
+
+    private void btnRestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestarActionPerformed
+        try{
+           numeros();
+           
+           this.resultado = this.num1 - this.num2;
+           
+           this.txtResultado.setText(Double.toString(this.resultado));
+        }catch(Exception e){
+            mensaje();
+        }
+    }//GEN-LAST:event_btnRestarActionPerformed
+
+    private void btnMultiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplicarActionPerformed
+        try{
+           numeros();
+           
+           this.resultado = this.num1 * this.num2;
+           
+           this.txtResultado.setText(Double.toString(this.resultado));
+        }catch(Exception e){
+            mensaje();
+        }
+    }//GEN-LAST:event_btnMultiplicarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -104,11 +220,28 @@ public class Principal extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void numeros(){
+        this.num1 = Double.parseDouble(this.tfNum1.getText());
+        this.num2 = Double.parseDouble(this.tfNum2.getText());
+    }
+    
+    public void mensaje(){
+        JOptionPane.showMessageDialog(null, "Los campos no pueden ir vacios.\nNi contener letras.", "Advertencia", 0);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btnDividir;
+    private javax.swing.JButton btnMultiplicar;
+    private javax.swing.JButton btnRestar;
+    private javax.swing.JButton btnSumar;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel panelEscritura;
     private javax.swing.JPanel panelMensaje;
-    private javax.swing.JLabel txtMensaje;
+    private javax.swing.JTextField tfNum1;
+    private javax.swing.JTextField tfNum2;
+    private javax.swing.JLabel txtNum1;
+    private javax.swing.JLabel txtNum2;
+    private javax.swing.JLabel txtResultado;
     // End of variables declaration//GEN-END:variables
 }
