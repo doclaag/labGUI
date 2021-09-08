@@ -5,14 +5,18 @@ import javax.swing.JOptionPane;
 /**
  * @author Luis Alonzo
  */
+
 public class Principal extends javax.swing.JFrame {
 
+    private Calculadora calculadora;
+    
     double num1 = 0.0;
     double num2 = 0.0;
     double resultado = 0.0;
     
     public Principal() {
         initComponents();
+        calculadora = new Calculadora("Casio", "FX-981");
         this.setLocationRelativeTo(null);
     }
 
@@ -38,6 +42,7 @@ public class Principal extends javax.swing.JFrame {
         btnMultiplicar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         txtResultado = new javax.swing.JLabel();
+        txtInfo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ventana Principal");
@@ -129,7 +134,12 @@ public class Principal extends javax.swing.JFrame {
 
         txtResultado.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         txtResultado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jPanel1.add(txtResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 310, 60));
+        jPanel1.add(txtResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 60));
+
+        txtInfo.setFont(new java.awt.Font("Comic Sans MS", 1, 15)); // NOI18N
+        txtInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtInfo.setText("Nombre:Luis Alonzo    Carné:2690-20-348");
+        jPanel1.add(txtInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 340, -1));
 
         panelEscritura.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 340, 100));
 
@@ -142,7 +152,7 @@ public class Principal extends javax.swing.JFrame {
         try{
            numeros();
            
-           this.resultado = this.num1 / this.num2;
+           this.resultado = calculadora.dividir(this.num1, this.num2);
            
            this.txtResultado.setText(Double.toString(this.resultado));
         }catch(Exception e){
@@ -154,9 +164,8 @@ public class Principal extends javax.swing.JFrame {
         try{
            numeros();
            
-           this.resultado = this.num1 + this.num2;
-           
-           this.txtResultado.setText(Double.toString(this.resultado));
+//           this.resultado = this.num1 + this.num2;
+           this.txtResultado.setText(Double.toString(calculadora.sumar(this.num1,this.num2)));
         }catch(Exception e){
             mensaje();
         }
@@ -166,7 +175,7 @@ public class Principal extends javax.swing.JFrame {
         try{
            numeros();
            
-           this.resultado = this.num1 - this.num2;
+           this.resultado = calculadora.restar(this.num1, this.num2);
            
            this.txtResultado.setText(Double.toString(this.resultado));
         }catch(Exception e){
@@ -178,7 +187,7 @@ public class Principal extends javax.swing.JFrame {
         try{
            numeros();
            
-           this.resultado = this.num1 * this.num2;
+           this.resultado = calculadora.multiplicar(this.num1, this.num2);
            
            this.txtResultado.setText(Double.toString(this.resultado));
         }catch(Exception e){
@@ -240,6 +249,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel panelMensaje;
     private javax.swing.JTextField tfNum1;
     private javax.swing.JTextField tfNum2;
+    private javax.swing.JLabel txtInfo;
     private javax.swing.JLabel txtNum1;
     private javax.swing.JLabel txtNum2;
     private javax.swing.JLabel txtResultado;
