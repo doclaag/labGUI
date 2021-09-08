@@ -1,5 +1,7 @@
 package gt.edu.umg.labgui;
 
+import java.awt.Color;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -7,12 +9,37 @@ import javax.swing.JOptionPane;
  */
 public class Principal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Principal
-     */
+    boolean estado = true;
+    String siguienteJuego = "O";
+    String turno = "X";
+    JLabel lbs[] = new JLabel[9];
+    int victorias[][] = {
+        {1,2,3},
+        {4,5,6},
+        {7,8,9},
+        {1,4,7},
+        {2,5,8},
+        {3,6,9},
+        {1,5,9},
+        {3,5,7}
+    };
+    
     
     public Principal() {
         initComponents();
+        
+        System.out.println(this.victorias[4][2]);
+        
+        this.setLocationRelativeTo(null);
+        lbs[0] = txt1;
+        lbs[1] = txt2;
+        lbs[2] = txt3;
+        lbs[3] = txt4;
+        lbs[4] = txt5;
+        lbs[5] = txt6;
+        lbs[6] = txt7;
+        lbs[7] = txt8;
+        lbs[8] = txt9;
     }
 
     /**
@@ -26,9 +53,22 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         panelMensaje = new javax.swing.JPanel();
-        txtMensaje = new javax.swing.JLabel();
-        panelEscritura = new javax.swing.JPanel();
-        btnAceptar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        txt3 = new javax.swing.JLabel();
+        txt2 = new javax.swing.JLabel();
+        txt1 = new javax.swing.JLabel();
+        txt6 = new javax.swing.JLabel();
+        txt5 = new javax.swing.JLabel();
+        txt4 = new javax.swing.JLabel();
+        txt7 = new javax.swing.JLabel();
+        txt9 = new javax.swing.JLabel();
+        txt8 = new javax.swing.JLabel();
+        btnReiniciar = new javax.swing.JButton();
+        txtTurno = new javax.swing.JLabel();
+        txtPuntajeX = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtPuntajeO = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ventana Principal");
@@ -40,35 +80,208 @@ public class Principal extends javax.swing.JFrame {
         panelMensaje.setPreferredSize(new java.awt.Dimension(340, 150));
         panelMensaje.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtMensaje.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        txtMensaje.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        txtMensaje.setText("MI PRIMER PROGRAMA");
-        panelMensaje.add(txtMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 21, 330, -1));
+        jPanel1.setBackground(new java.awt.Color(123, 160, 152));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        getContentPane().add(panelMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, -1));
-
-        panelEscritura.setBackground(new java.awt.Color(255, 255, 255));
-        panelEscritura.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnAceptar.setText("Aceptar");
-        btnAceptar.setBorder(null);
-        btnAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAceptarActionPerformed(evt);
+        txt3.setBackground(new java.awt.Color(244, 253, 251));
+        txt3.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        txt3.setForeground(new java.awt.Color(33, 33, 33));
+        txt3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txt3.setOpaque(true);
+        txt3.setPreferredSize(new java.awt.Dimension(50, 50));
+        txt3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txt3MousePressed(evt);
             }
         });
-        panelEscritura.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 110, 90));
+        jPanel1.add(txt3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 50, 50));
 
-        getContentPane().add(panelEscritura, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 340, 400));
+        txt2.setBackground(new java.awt.Color(244, 253, 251));
+        txt2.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        txt2.setForeground(new java.awt.Color(33, 33, 33));
+        txt2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txt2.setOpaque(true);
+        txt2.setPreferredSize(new java.awt.Dimension(50, 50));
+        txt2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txt2MousePressed(evt);
+            }
+        });
+        jPanel1.add(txt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 50, 50));
+
+        txt1.setBackground(new java.awt.Color(244, 253, 251));
+        txt1.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        txt1.setForeground(new java.awt.Color(33, 33, 33));
+        txt1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txt1.setOpaque(true);
+        txt1.setPreferredSize(new java.awt.Dimension(50, 50));
+        txt1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txt1MousePressed(evt);
+            }
+        });
+        jPanel1.add(txt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
+
+        txt6.setBackground(new java.awt.Color(244, 253, 251));
+        txt6.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        txt6.setForeground(new java.awt.Color(33, 33, 33));
+        txt6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txt6.setOpaque(true);
+        txt6.setPreferredSize(new java.awt.Dimension(50, 50));
+        txt6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txt6MousePressed(evt);
+            }
+        });
+        jPanel1.add(txt6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 50, 50));
+
+        txt5.setBackground(new java.awt.Color(244, 253, 251));
+        txt5.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        txt5.setForeground(new java.awt.Color(33, 33, 33));
+        txt5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txt5.setOpaque(true);
+        txt5.setPreferredSize(new java.awt.Dimension(50, 50));
+        txt5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txt5MousePressed(evt);
+            }
+        });
+        jPanel1.add(txt5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 50, 50));
+
+        txt4.setBackground(new java.awt.Color(244, 253, 251));
+        txt4.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        txt4.setForeground(new java.awt.Color(33, 33, 33));
+        txt4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txt4.setOpaque(true);
+        txt4.setPreferredSize(new java.awt.Dimension(50, 50));
+        txt4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txt4MousePressed(evt);
+            }
+        });
+        jPanel1.add(txt4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 50, 50));
+
+        txt7.setBackground(new java.awt.Color(244, 253, 251));
+        txt7.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        txt7.setForeground(new java.awt.Color(33, 33, 33));
+        txt7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txt7.setOpaque(true);
+        txt7.setPreferredSize(new java.awt.Dimension(50, 50));
+        txt7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txt7MousePressed(evt);
+            }
+        });
+        jPanel1.add(txt7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 50, 50));
+
+        txt9.setBackground(new java.awt.Color(244, 253, 251));
+        txt9.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        txt9.setForeground(new java.awt.Color(33, 33, 33));
+        txt9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txt9.setOpaque(true);
+        txt9.setPreferredSize(new java.awt.Dimension(50, 50));
+        txt9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txt9MousePressed(evt);
+            }
+        });
+        jPanel1.add(txt9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 50, 50));
+
+        txt8.setBackground(new java.awt.Color(244, 253, 251));
+        txt8.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        txt8.setForeground(new java.awt.Color(33, 33, 33));
+        txt8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txt8.setOpaque(true);
+        txt8.setPreferredSize(new java.awt.Dimension(50, 50));
+        txt8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txt8MousePressed(evt);
+            }
+        });
+        jPanel1.add(txt8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 50, 50));
+
+        panelMensaje.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 190, 190));
+
+        btnReiniciar.setText("Reiniciar");
+        btnReiniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReiniciarActionPerformed(evt);
+            }
+        });
+        panelMensaje.add(btnReiniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
+
+        txtTurno.setText("Turno de: X");
+        panelMensaje.add(txtTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        txtPuntajeX.setText("0");
+        panelMensaje.add(txtPuntajeX, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
+
+        jLabel2.setText("X = ");
+        panelMensaje.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
+
+        txtPuntajeO.setText("0");
+        panelMensaje.add(txtPuntajeO, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, -1, -1));
+
+        jLabel3.setText("O =");
+        panelMensaje.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, -1, -1));
+
+        getContentPane().add(panelMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        this.txtMensaje.setText("Estoy aprendiendo Java");
-        JOptionPane.showMessageDialog(rootPane, "Hola Mundo - Soy Luis Alonzo");
-    }//GEN-LAST:event_btnAceptarActionPerformed
+    private void txt1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt1MousePressed
+        presionar(1);
+    }//GEN-LAST:event_txt1MousePressed
+
+    private void txt2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt2MousePressed
+        presionar(2);
+    }//GEN-LAST:event_txt2MousePressed
+
+    private void txt3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt3MousePressed
+        presionar(3);
+    }//GEN-LAST:event_txt3MousePressed
+
+    private void txt4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt4MousePressed
+        presionar(4);
+    }//GEN-LAST:event_txt4MousePressed
+
+    private void txt5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt5MousePressed
+        presionar(5);
+    }//GEN-LAST:event_txt5MousePressed
+
+    private void txt6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt6MousePressed
+        presionar(6);
+    }//GEN-LAST:event_txt6MousePressed
+
+    private void txt7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt7MousePressed
+        presionar(7);
+    }//GEN-LAST:event_txt7MousePressed
+
+    private void txt8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt8MousePressed
+        presionar(8);
+    }//GEN-LAST:event_txt8MousePressed
+
+    private void txt9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt9MousePressed
+        presionar(9);
+    }//GEN-LAST:event_txt9MousePressed
+
+    private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed
+        for (int i = 0; i < lbs.length; i++) {
+            this.lbs[i].setText("");
+            this.lbs[i].setBackground(new Color(244,253,251));
+        }
+        
+        this.turno = this.siguienteJuego;
+        if(this.siguienteJuego.equals("O")){
+            this.siguienteJuego = "X";
+        }else{
+            this.siguienteJuego = "O";
+        }
+        
+        this.txtTurno.setText("Turno de: "+this.turno);
+        this.estado = true;
+    }//GEN-LAST:event_btnReiniciarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -104,11 +317,72 @@ public class Principal extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void presionar(int casilla){
+        if(this.lbs[casilla-1].getText().equals("") && this.estado){
+            lbs[casilla-1].setText(this.turno);
+            this.cambiarTurno();
+            this.comprobarGanador();
+        }
+        
+    }
+    
+    public void cambiarTurno(){
+        if(this.turno.equals("X")){
+            this.turno = "O";
+        }else{
+            this.turno = "X";
+        }
+        this.txtTurno.setText("Turno de: " + this.turno);
+    }
+    
+    public void comprobarGanador(){
+        for (int i = 0; i < this.victorias.length; i++) {
+            if(this.lbs[this.victorias[i][0]-1].getText().equals("X")&&
+                    this.lbs[this.victorias[i][1]-1].getText().equals("X")&&
+                    this.lbs[this.victorias[i][2]-1].getText().equals("X")){
+                
+                this.lbs[this.victorias[i][0]-1].setBackground(new Color(182, 229, 52 ));
+                this.lbs[this.victorias[i][1]-1].setBackground(new Color(182, 229, 52 ));
+                this.lbs[this.victorias[i][2]-1].setBackground(new Color(182, 229, 52 ));
+                
+                txtPuntajeX.setText(Integer.toString(Integer.parseInt(txtPuntajeX.getText())+1));
+                
+                JOptionPane.showMessageDialog(rootPane, "GANÓ X");
+                this.estado = false;
+            }else if(this.lbs[this.victorias[i][0]-1].getText().equals("O")&&
+                    this.lbs[this.victorias[i][1]-1].getText().equals("O")&&
+                    this.lbs[this.victorias[i][2]-1].getText().equals("O")){
+                
+                this.lbs[this.victorias[i][0]-1].setBackground(new Color(182, 229, 52 ));
+                this.lbs[this.victorias[i][1]-1].setBackground(new Color(182, 229, 52 ));
+                this.lbs[this.victorias[i][2]-1].setBackground(new Color(182, 229, 52 ));
+                
+                txtPuntajeO.setText(Integer.toString(Integer.parseInt(txtPuntajeO.getText())+1));
+                JOptionPane.showMessageDialog(rootPane, "GANÓ O");
+                this.estado = false;
+            }
+        }
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAceptar;
-    private javax.swing.JPanel panelEscritura;
+    private javax.swing.JButton btnReiniciar;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel panelMensaje;
-    private javax.swing.JLabel txtMensaje;
+    private javax.swing.JLabel txt1;
+    private javax.swing.JLabel txt2;
+    private javax.swing.JLabel txt3;
+    private javax.swing.JLabel txt4;
+    private javax.swing.JLabel txt5;
+    private javax.swing.JLabel txt6;
+    private javax.swing.JLabel txt7;
+    private javax.swing.JLabel txt8;
+    private javax.swing.JLabel txt9;
+    private javax.swing.JLabel txtPuntajeO;
+    private javax.swing.JLabel txtPuntajeX;
+    private javax.swing.JLabel txtTurno;
     // End of variables declaration//GEN-END:variables
 }
